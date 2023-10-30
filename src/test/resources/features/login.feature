@@ -1,7 +1,8 @@
 Feature: Log into demoBlaze e-commerce website
-
-  Background: 
-     Given: I am on the demoBlaze site page
+	
+	
+Background: 
+     Given I am on the demoBlaze site page
 
 
   Scenario: Log into demoBlaze website with valid credentials
