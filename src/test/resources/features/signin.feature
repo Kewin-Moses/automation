@@ -1,7 +1,7 @@
 Feature: To signin demoBlaze e-commerce website
 
   Background: 
-    Given: I am on the demoBlaze site page
+    Given Currently I am on the demoBlaze site page
 
 
   Scenario: Sucessfully creating a new account on demoBlaze site by entering un-used credentials
