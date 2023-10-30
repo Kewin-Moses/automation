@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageClass.LogInPage;
 import pageClass.SignInPage;
+import runner.TestRunner;
 
 public class LogInStepDef {
 
@@ -19,19 +20,22 @@ public class LogInStepDef {
 
 	@Before
 	public void setup() {
-		WebDriverManager.edgedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://www.demoblaze.com/");
-		loginpage = new LogInPage(driver);
 	}
 
 	@After
 	public void tearDown() {
 		if (driver != null) {
-		//	driver.quit();
-			;
+			driver.quit();
+
 		}
+	}
+
+	@Given("I am on the demoBlaze site page")
+	public void i_am_on_the_demo_blaze_site_page() {
+		driver.get("https://www.demoblaze.com/");
+		loginpage = new LogInPage(driver);
 	}
 
 	@Given("I click on the Login link")
@@ -68,8 +72,6 @@ public class LogInStepDef {
 
 	@Then("I should not be able to log in sucessfully")
 	public void i_should_not_be_able_to_log_in_sucessfully() throws InterruptedException {
-		// Write code here that turns the phrase above into concrete actions
-//		Thread.sleep(5000);
 		loginpage.closeAlert();
 	}
 
